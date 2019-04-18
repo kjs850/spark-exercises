@@ -23,7 +23,7 @@ public class Application {
         // get data
         Dataset<Row> df = spark.read().format("csv")
                 .option("header", true)
-                .load("src/main/resources/name_and_comments.txt");
+                .load("src/main/resources/chapter1/name_and_comments.txt");
 
         df.show(3);
 
@@ -36,15 +36,15 @@ public class Application {
         df.show(3);
 
         // Write to destination
-		String dbConnectionUrl = "jdbc:mysql://127.0.0.1:3306/testdb";
-		Properties prop = new Properties();
-	    prop.setProperty("driver", "com.mysql.jdbc.Driver");
-	    prop.setProperty("user", "testuser");
-	    prop.setProperty("password", "password");
-
-        df.write()
-	    	.mode(SaveMode.Overwrite)
-	    	.jdbc(dbConnectionUrl, "project1", prop);
+//		String dbConnectionUrl = "jdbc:mysql://127.0.0.1:3306/testdb";
+//		Properties prop = new Properties();
+//	    prop.setProperty("driver", "com.mysql.jdbc.Driver");
+//	    prop.setProperty("user", "testuser");
+//	    prop.setProperty("password", "password");
+//
+//        df.write()
+//        .mode(SaveMode.Overwrite)
+//        .jdbc(dbConnectionUrl, "project1", prop);
 
     }
 }
